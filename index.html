@@ -5,12 +5,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#100d20">
-<title>إلى أختي | هدية من القلب ❤️</title>
+<title>DREAMY 2026 | إلى أختي ❤️</title>
 
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Tajawal:wght@300;400;500;700&display=swap');
 
-* { box-sizing: border-box; }
+* {
+ box-sizing: border-box;
+}
 
 body {
  margin: 0;
@@ -113,25 +115,40 @@ h1 {
  box-shadow: 0 15px 60px #0005;
 }
 
+/* خانة كلمة المرور */
+
 input {
+ display: block;
  width: 100%;
- padding: 17px;
+ padding: 18px;
  margin: 20px 0 12px;
  border-radius: 15px;
- border: 1px solid #d8b6ed55;
+ border: 1px solid #d8b6ed;
  outline: none;
- background: #ffffff0d;
- color: white;
+ background: #171024;
+ color: #ffffff !important;
+ -webkit-text-fill-color: #ffffff;
+ caret-color: #ffffff;
  text-align: center;
+ direction: ltr;
  font-family: 'Tajawal',sans-serif;
- font-size: 20px;
+ font-size: 25px;
+ font-weight: 700;
  letter-spacing: 4px;
+ opacity: 1;
 }
 
 input::placeholder {
- color: #a99bbd;
+ color: #c9b6dd;
+ -webkit-text-fill-color: #c9b6dd;
+ opacity: 1;
  font-size: 14px;
  letter-spacing: 0;
+}
+
+input:focus {
+ border-color: #e8b9ed;
+ box-shadow: 0 0 18px #c58be855;
 }
 
 button {
@@ -148,7 +165,9 @@ button {
  transition: .3s;
 }
 
-button:active { transform:scale(.96); }
+button:active {
+ transform:scale(.96);
+}
 
 #error {
  color: #ff9ebd;
@@ -157,7 +176,9 @@ button:active { transform:scale(.96); }
  margin-top: 12px;
 }
 
-#gift,#letter,#ending { display:none; }
+#gift,#letter,#ending {
+ display:none;
+}
 
 .message {
  font-family: 'Amiri',serif;
@@ -195,6 +216,12 @@ footer {
  margin-top: 30px;
  letter-spacing: 2px;
 }
+
+@media(max-width:400px) {
+ h1 { font-size:37px; }
+ .message { font-size:20px; }
+ .glass { padding:25px 18px; }
+}
 </style>
 </head>
 
@@ -205,11 +232,11 @@ footer {
 
 <main class="container">
 
-<!-- شاشة تسجيل الدخول -->
+<!-- تسجيل الدخول -->
 
 <section class="screen" id="login">
 
- <div class="tag">A PRIVATE GIFT · 2026</div>
+ <div class="tag">DREAMY 2026</div>
  <div class="flower">🌙</div>
 
  <h1>مرحباً يا وردتي</h1>
@@ -224,19 +251,24 @@ footer {
   <h2>هل تعرفين المفتاح؟</h2>
 
   <p class="subtitle">
-   كلمة المرور هي تاريخ ميلادكِ ❤️
+   كلمة المرور هي سنة ميلادكِ ❤️
   </p>
 
   <input
    id="password"
-   type="password"
+   type="text"
    inputmode="numeric"
-   maxlength="8"
-   placeholder="DDMMYYYY"
+   pattern="[0-9]*"
+   maxlength="4"
+   placeholder="2000 - 2004"
    autocomplete="off"
+   autocapitalize="off"
+   spellcheck="false"
   >
 
-  <button onclick="login()">افتحي عالمكِ ✨</button>
+  <button type="button" onclick="login()">
+   افتحي عالمكِ ✨
+  </button>
 
   <div id="error"></div>
 
@@ -247,7 +279,7 @@ footer {
 </section>
 
 
-<!-- شاشة الترحيب -->
+<!-- الترحيب -->
 
 <section class="screen" id="gift">
 
@@ -263,7 +295,9 @@ footer {
  </p>
 
  <div class="glass">
-  <button onclick="openLetter()">افتحي رسالتكِ 💗</button>
+  <button type="button" onclick="openLetter()">
+   افتحي رسالتكِ 💗
+  </button>
  </div>
 
 </section>
@@ -283,8 +317,11 @@ footer {
   <div class="message" id="message"></div>
  </div>
 
- <button style="margin-top:25px" onclick="showEnding()">
- وهناك شيء آخر لكِ ❤️
+ <button
+  type="button"
+  style="margin-top:25px"
+  onclick="showEnding()">
+  وهناك شيء آخر لكِ ❤️
  </button>
 
 </section>
@@ -319,51 +356,51 @@ footer {
 
 </main>
 
+
 <script>
 
-// التحقق من تاريخ الميلاد
+// تسجيل الدخول: سنة الميلاد فقط
 
 function login() {
 
- const pass = document.getElementById('password').value.trim();
+ const input = document.getElementById('password');
+ const pass = input.value.trim();
  const error = document.getElementById('error');
 
- if (!/^\d{8}$/.test(pass)) {
-  error.textContent = 'أدخلي تاريخ الميلاد بصيغة DDMMYYYY 🌸';
+ if (!/^[0-9]{4}$/.test(pass)) {
+  error.textContent = 'اكتبي سنة الميلاد المكوّنة من 4 أرقام 🌸';
+  input.focus();
   return;
  }
 
- const day = Number(pass.slice(0,2));
- const month = Number(pass.slice(2,4));
- const year = Number(pass.slice(4,8));
+ const year = Number(pass);
 
- const date = new Date(year,month-1,day);
+ if (year >= 2000 && year <= 2004) {
 
- const validDate =
-  date.getFullYear() === year &&
-  date.getMonth() === month-1 &&
-  date.getDate() === day;
+  document.getElementById('login').style.display = 'none';
+  document.getElementById('gift').style.display = 'block';
 
- if (validDate && year >= 2000 && year <= 2004) {
-
-  document.getElementById('login').style.display='none';
-  document.getElementById('gift').style.display='block';
   window.scrollTo(0,0);
 
  } else {
 
-  error.textContent='هذا المفتاح ليس صحيحاً يا وردتي ❤️';
+  error.textContent = 'هذه السنة غير صحيحة يا وردتي ❤️';
 
  }
 
 }
 
-document.getElementById('password').addEventListener('keydown',function(e){
- if(e.key==='Enter') login();
+
+// الضغط على Enter
+
+document.getElementById('password').addEventListener('keydown',function(e) {
+ if(e.key === 'Enter') {
+  login();
+ }
 });
 
 
-// الرسالة الأصلية
+// الرسالة كاملة
 
 const message = `إلى أختي ..
 
@@ -405,25 +442,14 @@ const message = `إلى أختي ..
 أدامكِ الله لي.`;
 
 
-// فتح الرسالة
+// فتح الرسالة: تظهر كاملة فوراً
 
 function openLetter() {
 
- document.getElementById('gift').style.display='none';
- document.getElementById('letter').style.display='block';
+ document.getElementById('gift').style.display = 'none';
+ document.getElementById('letter').style.display = 'block';
 
- const target=document.getElementById('message');
- target.textContent='';
-
- let i=0;
-
- const timer=setInterval(()=>{
-  target.textContent+=message[i];
-  i++;
-
-  if(i>=message.length) clearInterval(timer);
-
- },35);
+ document.getElementById('message').textContent = message;
 
  window.scrollTo(0,0);
 
@@ -434,49 +460,51 @@ function openLetter() {
 
 function showEnding() {
 
- document.getElementById('letter').style.display='none';
- document.getElementById('ending').style.display='block';
+ document.getElementById('letter').style.display = 'none';
+ document.getElementById('ending').style.display = 'block';
 
  window.scrollTo(0,0);
 
 }
 
 
-// إنشاء النجوم
+// النجوم
 
-for(let i=0;i<120;i++){
+for(let i=0;i<120;i++) {
 
- const star=document.createElement('div');
+ const star = document.createElement('div');
 
- star.className='star';
- star.style.left=Math.random()*100+'%';
- star.style.top=Math.random()*100+'%';
- star.style.animationDelay=Math.random()*4+'s';
- star.style.width=(Math.random()*2+1)+'px';
- star.style.height=star.style.width;
+ star.className = 'star';
+ star.style.left = Math.random()*100+'%';
+ star.style.top = Math.random()*100+'%';
+ star.style.animationDelay = Math.random()*4+'s';
+ star.style.width = (Math.random()*2+1)+'px';
+ star.style.height = star.style.width;
 
  document.getElementById('stars').appendChild(star);
 
 }
 
 
-// ورود ونجوم عائمة
+// الورود والنجوم المتحركة
 
-setInterval(()=>{
+setInterval(function() {
 
- const el=document.createElement('div');
+ const el = document.createElement('div');
 
- el.className='floating';
+ el.className = 'floating';
 
- const symbols=['✨','🌸','💗','🌷','⋆'];
+ const symbols = ['✨','🌸','💗','🌷','⋆'];
 
- el.textContent=symbols[Math.floor(Math.random()*symbols.length)];
- el.style.left=Math.random()*100+'%';
- el.style.fontSize=(Math.random()*18+14)+'px';
+ el.textContent = symbols[Math.floor(Math.random()*symbols.length)];
+ el.style.left = Math.random()*100+'%';
+ el.style.fontSize = (Math.random()*18+14)+'px';
 
  document.body.appendChild(el);
 
- setTimeout(()=>el.remove(),10000);
+ setTimeout(function() {
+  el.remove();
+ },10000);
 
 },1200);
 
@@ -484,4 +512,3 @@ setInterval(()=>{
 
 </body>
 </html>
-
