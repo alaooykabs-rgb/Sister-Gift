@@ -1,1 +1,487 @@
 
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#100d20">
+<title>إلى أختي | هدية من القلب ❤️</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Tajawal:wght@300;400;500;700&display=swap');
+
+* { box-sizing: border-box; }
+
+body {
+ margin: 0;
+ min-height: 100vh;
+ background:
+ radial-gradient(ellipse at 50% 10%, #493064, transparent 55%),
+ linear-gradient(145deg,#100d20,#211532,#090817);
+ color: #fff5ff;
+ font-family: 'Tajawal',sans-serif;
+ overflow-x: hidden;
+}
+
+#stars {
+ position: fixed;
+ inset: 0;
+ pointer-events: none;
+ z-index: 0;
+}
+
+.star {
+ position: absolute;
+ background: white;
+ border-radius: 50%;
+ animation: twinkle 3s infinite;
+}
+
+@keyframes twinkle {
+ 0%,100% { opacity:.2; transform:scale(.7); }
+ 50% { opacity:1; transform:scale(1.5); }
+}
+
+.moon {
+ position: fixed;
+ top: 45px;
+ left: 10%;
+ font-size: 55px;
+ filter: drop-shadow(0 0 20px #ffe6b5);
+ z-index: 1;
+}
+
+.container {
+ position: relative;
+ z-index: 2;
+ width: min(100% - 35px,650px);
+ min-height: 100vh;
+ margin: auto;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ padding: 40px 0;
+}
+
+.screen {
+ width: 100%;
+ text-align: center;
+ animation: appear 1s ease;
+}
+
+@keyframes appear {
+ from { opacity:0; transform:translateY(25px); }
+ to { opacity:1; transform:translateY(0); }
+}
+
+.tag {
+ color: #c8a9f5;
+ letter-spacing: 3px;
+ font-size: 12px;
+ margin-bottom: 25px;
+}
+
+.flower {
+ font-size: 70px;
+ animation: float 4s infinite ease-in-out;
+}
+
+@keyframes float {
+ 50% { transform:translateY(-12px) rotate(5deg); }
+}
+
+h1 {
+ font-family: 'Amiri',serif;
+ font-size: 45px;
+ color: #f5c9e3;
+ margin: 15px 0;
+}
+
+.subtitle {
+ color: #d2c0e2;
+ font-size: 17px;
+ line-height: 2;
+}
+
+.glass {
+ background: linear-gradient(140deg,#ffffff15,#ffffff06);
+ border: 1px solid #ffffff25;
+ border-radius: 28px;
+ padding: 30px 23px;
+ backdrop-filter: blur(18px);
+ -webkit-backdrop-filter: blur(18px);
+ box-shadow: 0 15px 60px #0005;
+}
+
+input {
+ width: 100%;
+ padding: 17px;
+ margin: 20px 0 12px;
+ border-radius: 15px;
+ border: 1px solid #d8b6ed55;
+ outline: none;
+ background: #ffffff0d;
+ color: white;
+ text-align: center;
+ font-family: 'Tajawal',sans-serif;
+ font-size: 20px;
+ letter-spacing: 4px;
+}
+
+input::placeholder {
+ color: #a99bbd;
+ font-size: 14px;
+ letter-spacing: 0;
+}
+
+button {
+ width: 100%;
+ padding: 16px;
+ border: 0;
+ border-radius: 50px;
+ background: linear-gradient(110deg,#9469c8,#d58db5);
+ color: white;
+ font-family: 'Tajawal',sans-serif;
+ font-size: 17px;
+ cursor: pointer;
+ box-shadow: 0 0 30px #b784d855;
+ transition: .3s;
+}
+
+button:active { transform:scale(.96); }
+
+#error {
+ color: #ff9ebd;
+ font-size: 14px;
+ min-height: 25px;
+ margin-top: 12px;
+}
+
+#gift,#letter,#ending { display:none; }
+
+.message {
+ font-family: 'Amiri',serif;
+ font-size: 22px;
+ line-height: 2.15;
+ text-align: right;
+ white-space: pre-line;
+ color: #fff0f8;
+}
+
+h2 {
+ font-family: 'Amiri',serif;
+ color: #f5b9dc;
+ font-size: 30px;
+}
+
+.floating {
+ position: fixed;
+ bottom: -40px;
+ pointer-events: none;
+ animation: rise 9s linear forwards;
+ z-index: 1;
+}
+
+@keyframes rise {
+ to {
+  transform:translateY(-110vh) rotate(360deg);
+  opacity:0;
+ }
+}
+
+footer {
+ color: #a999ba;
+ font-size: 12px;
+ margin-top: 30px;
+ letter-spacing: 2px;
+}
+</style>
+</head>
+
+<body>
+
+<div id="stars"></div>
+<div class="moon">☾</div>
+
+<main class="container">
+
+<!-- شاشة تسجيل الدخول -->
+
+<section class="screen" id="login">
+
+ <div class="tag">A PRIVATE GIFT · 2026</div>
+ <div class="flower">🌙</div>
+
+ <h1>مرحباً يا وردتي</h1>
+
+ <p class="subtitle">
+ هذا العالم الصغير صُنع لكِ وحدكِ.<br>
+ ولكن قبل أن تدخليه... هناك سر صغير.
+ </p>
+
+ <div class="glass">
+
+  <h2>هل تعرفين المفتاح؟</h2>
+
+  <p class="subtitle">
+   كلمة المرور هي تاريخ ميلادكِ ❤️
+  </p>
+
+  <input
+   id="password"
+   type="password"
+   inputmode="numeric"
+   maxlength="8"
+   placeholder="DDMMYYYY"
+   autocomplete="off"
+  >
+
+  <button onclick="login()">افتحي عالمكِ ✨</button>
+
+  <div id="error"></div>
+
+ </div>
+
+ <footer>MADE WITH LOVE FOR YOU ♡</footer>
+
+</section>
+
+
+<!-- شاشة الترحيب -->
+
+<section class="screen" id="gift">
+
+ <div class="tag">WELCOME TO YOUR LITTLE UNIVERSE</div>
+
+ <div class="flower">🌷</div>
+
+ <h1>أخيراً وصلتي!</h1>
+
+ <p class="subtitle">
+ يا أجمل صدفة وأحلى نعمة في حياتي.<br>
+ هناك رسالة تنتظركِ من القلب.
+ </p>
+
+ <div class="glass">
+  <button onclick="openLetter()">افتحي رسالتكِ 💗</button>
+ </div>
+
+</section>
+
+
+<!-- الرسالة -->
+
+<section class="screen" id="letter">
+
+ <div class="tag">A LETTER FROM MY HEART</div>
+
+ <div class="flower">💗</div>
+
+ <h2>إلى وردتي الجميلة</h2>
+
+ <div class="glass">
+  <div class="message" id="message"></div>
+ </div>
+
+ <button style="margin-top:25px" onclick="showEnding()">
+ وهناك شيء آخر لكِ ❤️
+ </button>
+
+</section>
+
+
+<!-- الخاتمة -->
+
+<section class="screen" id="ending">
+
+ <div class="flower">🌙</div>
+
+ <h1>أدامكِ الله لي</h1>
+
+ <div class="glass">
+
+  <div class="message" style="text-align:center">
+اللهم إني أحبها كثيراً،
+فسخر لها من الأقدار أجملها،
+واكتب لها فرحاً لا ينتهي،
+وأياماً تشبه جمال قلبها.
+  </div>
+
+  <div style="font-size:40px;margin-top:20px">❤️</div>
+
+  <h2>أحبكِ جداً</h2>
+
+ </div>
+
+ <footer>إلى الأبد... أختي وسندي وقطعة من روحي</footer>
+
+</section>
+
+</main>
+
+<script>
+
+// التحقق من تاريخ الميلاد
+
+function login() {
+
+ const pass = document.getElementById('password').value.trim();
+ const error = document.getElementById('error');
+
+ if (!/^\d{8}$/.test(pass)) {
+  error.textContent = 'أدخلي تاريخ الميلاد بصيغة DDMMYYYY 🌸';
+  return;
+ }
+
+ const day = Number(pass.slice(0,2));
+ const month = Number(pass.slice(2,4));
+ const year = Number(pass.slice(4,8));
+
+ const date = new Date(year,month-1,day);
+
+ const validDate =
+  date.getFullYear() === year &&
+  date.getMonth() === month-1 &&
+  date.getDate() === day;
+
+ if (validDate && year >= 2000 && year <= 2004) {
+
+  document.getElementById('login').style.display='none';
+  document.getElementById('gift').style.display='block';
+  window.scrollTo(0,0);
+
+ } else {
+
+  error.textContent='هذا المفتاح ليس صحيحاً يا وردتي ❤️';
+
+ }
+
+}
+
+document.getElementById('password').addEventListener('keydown',function(e){
+ if(e.key==='Enter') login();
+});
+
+
+// الرسالة الأصلية
+
+const message = `إلى أختي ..
+
+إلى أحب الناس لروحي ..
+
+كتفي وسندي الذي لا يميل، قدوتي وقوتي،
+حبيبتي ورفيقتي.
+
+وصديقتي الأولى والأزلية،
+هي اليد التي أستند عليها عند ضعفي،
+هي المكان الذي أهرب إليه حين أخاف.
+
+أنتِ مصدر الأمان وأنتِ مصدر النور في حياتي،
+أنتِ روحي الأخرى، أنتِ هبة الله الطيبة.
+
+أنني حظيت بخير أخت يا وردتي الجميلة،
+لا دنيا تُقارن بكِ أحبك جداً.
+
+لطالما كنتِ دفتر أضع به أسراري،
+وكنتِ من يسمع لي عندما لا أجد من يسمعني،
+من بعد الله.
+
+اللهم إني أحبها كثيراً فسخر لها من الأقدار أجملها.
+
+هل تعلمين؟
+
+أنتِ بمثابة النجمة في حياتي،
+مضيئة، قوية، شخصية عظيمة.
+
+أنتِ ذروة أيامي وأنتِ ذخيرتي
+التي أواجه بها شقاء هذا العالم.
+
+امتناني لكِ دائماً،
+فلا خوف عليّ وأنتِ هنا بجانبي.
+
+دائماً ما تجعلينني أنمو وألمع،
+أنتِ معي وهذا يكفيني.
+
+أدامكِ الله لي.`;
+
+
+// فتح الرسالة
+
+function openLetter() {
+
+ document.getElementById('gift').style.display='none';
+ document.getElementById('letter').style.display='block';
+
+ const target=document.getElementById('message');
+ target.textContent='';
+
+ let i=0;
+
+ const timer=setInterval(()=>{
+  target.textContent+=message[i];
+  i++;
+
+  if(i>=message.length) clearInterval(timer);
+
+ },35);
+
+ window.scrollTo(0,0);
+
+}
+
+
+// الخاتمة
+
+function showEnding() {
+
+ document.getElementById('letter').style.display='none';
+ document.getElementById('ending').style.display='block';
+
+ window.scrollTo(0,0);
+
+}
+
+
+// إنشاء النجوم
+
+for(let i=0;i<120;i++){
+
+ const star=document.createElement('div');
+
+ star.className='star';
+ star.style.left=Math.random()*100+'%';
+ star.style.top=Math.random()*100+'%';
+ star.style.animationDelay=Math.random()*4+'s';
+ star.style.width=(Math.random()*2+1)+'px';
+ star.style.height=star.style.width;
+
+ document.getElementById('stars').appendChild(star);
+
+}
+
+
+// ورود ونجوم عائمة
+
+setInterval(()=>{
+
+ const el=document.createElement('div');
+
+ el.className='floating';
+
+ const symbols=['✨','🌸','💗','🌷','⋆'];
+
+ el.textContent=symbols[Math.floor(Math.random()*symbols.length)];
+ el.style.left=Math.random()*100+'%';
+ el.style.fontSize=(Math.random()*18+14)+'px';
+
+ document.body.appendChild(el);
+
+ setTimeout(()=>el.remove(),10000);
+
+},1200);
+
+</script>
+
+</body>
+</html>
+
