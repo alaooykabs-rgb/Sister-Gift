@@ -4,12 +4,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#100d20">
-<title>DREAMY 2026 | إلى أختي ❤️</title>
+<meta name="theme-color" content="#100b1c">
+<title>عبير ❤️. 🌙</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Tajawal:wght@300;400;500;700&display=swap');
-
 * {
  box-sizing: border-box;
 }
@@ -17,15 +17,14 @@
 body {
  margin: 0;
  min-height: 100vh;
- background:
- radial-gradient(ellipse at 50% 10%, #493064, transparent 55%),
- linear-gradient(145deg,#100d20,#211532,#090817);
- color: #fff5ff;
- font-family: 'Tajawal',sans-serif;
+ font-family: 'Tajawal', sans-serif;
+ color: white;
+ background: radial-gradient(ellipse at top, #38234e 0%, #171025 48%, #090711 100%);
  overflow-x: hidden;
+ text-align: center;
 }
 
-#stars {
+.stars {
  position: fixed;
  inset: 0;
  pointer-events: none;
@@ -36,87 +35,70 @@ body {
  position: absolute;
  background: white;
  border-radius: 50%;
- animation: twinkle 3s infinite;
+ animation: twinkle 2s infinite alternate;
 }
 
 @keyframes twinkle {
- 0%,100% { opacity:.2; transform:scale(.7); }
- 50% { opacity:1; transform:scale(1.5); }
+ from { opacity: .2; transform: scale(.7); }
+ to { opacity: 1; transform: scale(1.3); }
 }
 
 .moon {
  position: fixed;
- top: 45px;
- left: 10%;
- font-size: 55px;
- filter: drop-shadow(0 0 20px #ffe6b5);
+ top: 35px;
+ left: 30px;
+ font-size: 48px;
+ filter: drop-shadow(0 0 20px #f5d9ff);
+ animation: moonGlow 3s infinite alternate;
  z-index: 1;
+}
+
+@keyframes moonGlow {
+ from { filter: drop-shadow(0 0 8px #f5d9ff); }
+ to { filter: drop-shadow(0 0 25px #e5aaff); }
 }
 
 .container {
  position: relative;
  z-index: 2;
- width: min(100% - 35px,650px);
- min-height: 100vh;
+ width: 90%;
+ max-width: 520px;
  margin: auto;
- display: flex;
- align-items: center;
- justify-content: center;
- padding: 40px 0;
+ padding: 35px 0;
 }
 
-.screen {
- width: 100%;
- text-align: center;
- animation: appear 1s ease;
-}
-
-@keyframes appear {
- from { opacity:0; transform:translateY(25px); }
- to { opacity:1; transform:translateY(0); }
-}
-
-.tag {
- color: #c8a9f5;
- letter-spacing: 3px;
- font-size: 12px;
- margin-bottom: 25px;
-}
-
-.flower {
- font-size: 70px;
- animation: float 4s infinite ease-in-out;
-}
-
-@keyframes float {
- 50% { transform:translateY(-12px) rotate(5deg); }
+.card {
+ margin-top: 100px;
+ padding: 30px 23px;
+ border: 1px solid #d8b6ed55;
+ border-radius: 25px;
+ background: rgba(255,255,255,.07);
+ backdrop-filter: blur(14px);
+ box-shadow: 0 0 35px #c58be822;
 }
 
 h1 {
- font-family: 'Amiri',serif;
- font-size: 45px;
- color: #f5c9e3;
- margin: 15px 0;
+ font-size: 32px;
+ color: #f3d6ff;
+ margin-bottom: 15px;
+}
+
+h2 {
+ color: #f5d7ff;
+ font-size: 25px;
+}
+
+p {
+ line-height: 2;
+ font-size: 18px;
 }
 
 .subtitle {
- color: #d2c0e2;
- font-size: 17px;
- line-height: 2;
-}
-
-.glass {
- background: linear-gradient(140deg,#ffffff15,#ffffff06);
- border: 1px solid #ffffff25;
- border-radius: 28px;
- padding: 30px 23px;
- backdrop-filter: blur(18px);
- -webkit-backdrop-filter: blur(18px);
- box-shadow: 0 15px 60px #0005;
+ color: #d9c6e9;
+ font-size: 16px;
 }
 
 /* خانة كلمة المرور */
-
 input {
  display: block;
  width: 100%;
@@ -126,22 +108,15 @@ input {
  border: 1px solid #d8b6ed;
  outline: none;
  background: #171024;
- color: #ffffff !important;
- -webkit-text-fill-color: #ffffff;
- caret-color: #ffffff;
  text-align: center;
  direction: ltr;
- font-family: 'Tajawal',sans-serif;
+ font-family: 'Tajawal', sans-serif;
  font-size: 25px;
  font-weight: 700;
  letter-spacing: 4px;
- opacity: 1;
 }
 
 input::placeholder {
- color: #c9b6dd;
- -webkit-text-fill-color: #c9b6dd;
- opacity: 1;
  font-size: 14px;
  letter-spacing: 0;
 }
@@ -153,216 +128,196 @@ input:focus {
 
 button {
  width: 100%;
- padding: 16px;
- border: 0;
- border-radius: 50px;
- background: linear-gradient(110deg,#9469c8,#d58db5);
- color: white;
- font-family: 'Tajawal',sans-serif;
- font-size: 17px;
+ border: none;
+ padding: 15px;
+ border-radius: 15px;
+ margin-top: 12px;
+ font-family: 'Tajawal', sans-serif;
+ font-size: 18px;
+ font-weight: 700;
+ color: #271331;
+ background: linear-gradient(135deg,#f5c8ef,#d7b1ff);
  cursor: pointer;
- box-shadow: 0 0 30px #b784d855;
  transition: .3s;
+ box-shadow: 0 5px 20px #d5a2ff33;
 }
 
 button:active {
- transform:scale(.96);
+ transform: scale(.97);
+}
+
+button:hover {
+ box-shadow: 0 0 25px #e5b5ff77;
 }
 
 #error {
- color: #ff9ebd;
- font-size: 14px;
- min-height: 25px;
- margin-top: 12px;
+ color: #ffb7d5;
+ font-size: 15px;
+ min-height: 24px;
 }
 
-#gift,#letter,#ending {
- display:none;
+.hidden {
+ display: none !important;
+}
+
+.emoji {
+ font-size: 45px;
+ margin: 12px;
 }
 
 .message {
- font-family: 'Amiri',serif;
- font-size: 22px;
- line-height: 2.15;
- text-align: right;
  white-space: pre-line;
- color: #fff0f8;
-}
-
-h2 {
- font-family: 'Amiri',serif;
- color: #f5b9dc;
- font-size: 30px;
+ line-height: 2.2;
+ font-size: 18px;
+ text-align: center;
+ color: #fff0ff;
+ padding: 10px 2px;
 }
 
 .floating {
  position: fixed;
  bottom: -40px;
  pointer-events: none;
- animation: rise 9s linear forwards;
  z-index: 1;
+ animation: floatUp linear forwards;
+ opacity: .8;
 }
 
-@keyframes rise {
- to {
-  transform:translateY(-110vh) rotate(360deg);
-  opacity:0;
+@keyframes floatUp {
+ 0% {
+  transform: translateY(0) rotate(0deg);
+  opacity: 0;
+ }
+ 15% { opacity: .8; }
+ 100% {
+  transform: translateY(-110vh) rotate(360deg);
+  opacity: 0;
  }
 }
 
-footer {
- color: #a999ba;
- font-size: 12px;
- margin-top: 30px;
- letter-spacing: 2px;
+.footer {
+ color: #c9a9db;
+ font-size: 14px;
+ margin-top: 25px;
 }
 
-@media(max-width:400px) {
- h1 { font-size:37px; }
- .message { font-size:20px; }
- .glass { padding:25px 18px; }
+.glow {
+ text-shadow: 0 0 15px #e5aaff;
+}
+
+@media(max-width: 480px) {
+ .card {
+  margin-top: 85px;
+  padding: 25px 18px;
+ }
+ h1 { font-size: 28px; }
+ .message { font-size: 17px; }
 }
 </style>
 </head>
 
 <body>
 
-<div id="stars"></div>
+<div class="stars" id="stars"></div>
 <div class="moon">☾</div>
 
-<main class="container">
+<div class="container">
 
-<!-- تسجيل الدخول -->
+<section class="card" id="login">
+ <div class="emoji">🌙</div>
+ <h1 class="glow">DREAMY 2026</h1>
+ <p>هناك شيء جميل ينتظركِ يا عبيري ✨</p>
+ <p class="subtitle">اكتبي سنة ميلادكِ لفتح هديتكِ 💗</p>
 
-<section class="screen" id="login">
+ <input
+  id="password"
+  type="text"
+  inputmode="numeric"
+  pattern="[0-9]*"
+  maxlength="4"
+  placeholder="2000 - 2004"
+  autocomplete="off"
+  autocapitalize="off"
+  spellcheck="false"
+ >
 
- <div class="tag">DREAMY 2026</div>
- <div class="flower">🌙</div>
+ <div id="error"></div>
+ <button onclick="login()">افتحي هديتكِ ✨</button>
+ <div class="footer">صُنعت بكل الحب ♡</div>
+</section>
 
- <h1>مرحباً يا وردتي</h1>
+<section class="card hidden" id="gift">
+ <div class="emoji">🌷</div>
+ <h1 class="glow">مرحباً عبيري</h1>
+ <p>يا أجمل من أهدتني الحياة 💗</p>
+ <p>هناك كلمات كثيرة خبأتها لكِ، واليوم حان وقت أن تقرئيها.</p>
+ <div class="emoji">💜✨</div>
+ <button onclick="openLetter()">افتحي رسالتكِ 💌</button>
+</section>
 
- <p class="subtitle">
- هذا العالم الصغير صُنع لكِ وحدكِ.<br>
- ولكن قبل أن تدخليه... هناك سر صغير.
+<section class="card hidden" id="letter">
+ <div class="emoji">💌</div>
+ <h1 class="glow">رسالة من القلب</h1>
+ <div class="message" id="message"></div>
+ <button onclick="showEnding()">تابعي يا عبيري 🌸</button>
+</section>
+
+<section class="card hidden" id="ending">
+ <div class="emoji">🌙💗</div>
+ <h1 class="glow">إلى الأبد يا عبيري</h1>
+ <p>
+ اللهم احفظها بعينك التي لا تنام،
+ وأسعد قلبها،
+ واكتب لها أجمل الأقدار،
+ ولا تريني فيها بأساً يبكيني.
  </p>
-
- <div class="glass">
-
-  <h2>هل تعرفين المفتاح؟</h2>
-
-  <p class="subtitle">
-   كلمة المرور هي سنة ميلادكِ ❤️
-  </p>
-
-  <input
-   id="password"
-   type="text"
-   inputmode="numeric"
-   pattern="[0-9]*"
-   maxlength="4"
-   placeholder="2000 - 2004"
-   autocomplete="off"
-   autocapitalize="off"
-   spellcheck="false"
-  >
-
-  <button type="button" onclick="login()">
-   افتحي عالمكِ ✨
-  </button>
-
-  <div id="error"></div>
-
- </div>
-
- <footer>MADE WITH LOVE FOR YOU ♡</footer>
-
+ <p>أدامكِ الله لي نعمة لا تزول 🤍</p>
+ <div class="emoji">🌷✨</div>
+ <p class="footer">DREAMY 2026<br>بكل الحب، لكِ وحدكِ ♡</p>
 </section>
 
-
-<!-- الترحيب -->
-
-<section class="screen" id="gift">
-
- <div class="tag">WELCOME TO YOUR LITTLE UNIVERSE</div>
-
- <div class="flower">🌷</div>
-
- <h1>أخيراً وصلتي!</h1>
-
- <p class="subtitle">
- يا أجمل صدفة وأحلى نعمة في حياتي.<br>
- هناك رسالة تنتظركِ من القلب.
- </p>
-
- <div class="glass">
-  <button type="button" onclick="openLetter()">
-   افتحي رسالتكِ 💗
-  </button>
- </div>
-
-</section>
-
-
-<!-- الرسالة -->
-
-<section class="screen" id="letter">
-
- <div class="tag">A LETTER FROM MY HEART</div>
-
- <div class="flower">💗</div>
-
- <h2>إلى وردتي الجميلة</h2>
-
- <div class="glass">
-  <div class="message" id="message"></div>
- </div>
-
- <button
-  type="button"
-  style="margin-top:25px"
-  onclick="showEnding()">
-  وهناك شيء آخر لكِ ❤️
- </button>
-
-</section>
-
-
-<!-- الخاتمة -->
-
-<section class="screen" id="ending">
-
- <div class="flower">🌙</div>
-
- <h1>أدامكِ الله لي</h1>
-
- <div class="glass">
-
-  <div class="message" style="text-align:center">
-اللهم إني أحبها كثيراً،
-فسخر لها من الأقدار أجملها،
-واكتب لها فرحاً لا ينتهي،
-وأياماً تشبه جمال قلبها.
-  </div>
-
-  <div style="font-size:40px;margin-top:20px">❤️</div>
-
-  <h2>أحبكِ جداً</h2>
-
- </div>
-
- <footer>إلى الأبد... أختي وسندي وقطعة من روحي</footer>
-
-</section>
-
-</main>
-
+</div>
 
 <script>
 
-// تسجيل الدخول: سنة الميلاد فقط
+// إنشاء النجوم
+const stars = document.getElementById('stars');
 
+for (let i = 0; i < 120; i++) {
+ const star = document.createElement('div');
+ star.className = 'star';
+ star.style.left = Math.random() * 100 + '%';
+ star.style.top = Math.random() * 100 + '%';
+
+ const size = Math.random() * 3 + 1;
+ star.style.width = size + 'px';
+ star.style.height = size + 'px';
+ star.style.animationDelay = Math.random() * 3 + 's';
+
+ stars.appendChild(star);
+}
+
+// الورود والرموز العائمة
+function createFlower() {
+ const flower = document.createElement('div');
+ flower.className = 'floating';
+
+ const flowers = ['🌸','🌷','💗','✨','🌺'];
+ flower.textContent = flowers[Math.floor(Math.random() * flowers.length)];
+
+ flower.style.left = Math.random() * 100 + '%';
+ flower.style.fontSize = (Math.random() * 15 + 15) + 'px';
+ flower.style.animationDuration = (Math.random() * 6 + 7) + 's';
+
+ document.body.appendChild(flower);
+
+ setTimeout(() => flower.remove(), 14000);
+}
+
+setInterval(createFlower, 900);
+
+// كلمة المرور
 function login() {
-
  const input = document.getElementById('password');
  const pass = input.value.trim();
  const error = document.getElementById('error');
@@ -376,32 +331,15 @@ function login() {
  const year = Number(pass);
 
  if (year >= 2000 && year <= 2004) {
-
-  document.getElementById('login').style.display = 'none';
-  document.getElementById('gift').style.display = 'block';
-
+  document.getElementById('login').classList.add('hidden');
+  document.getElementById('gift').classList.remove('hidden');
   window.scrollTo(0,0);
-
  } else {
-
-  error.textContent = 'هذه السنة غير صحيحة يا وردتي ❤️';
-
+  error.textContent = 'هذه السنة غير صحيحة يا عبيري ❤️';
  }
-
 }
 
-
-// الضغط على Enter
-
-document.getElementById('password').addEventListener('keydown',function(e) {
- if(e.key === 'Enter') {
-  login();
- }
-});
-
-
-// الرسالة كاملة
-
+// الرسالة
 const message = `إلى أختي ..
 
 إلى أحب الناس لروحي ..
@@ -441,72 +379,25 @@ const message = `إلى أختي ..
 
 أدامكِ الله لي.`;
 
-
-// فتح الرسالة: تظهر كاملة فوراً
-
+// إظهار الرسالة كاملة فوراً
 function openLetter() {
-
- document.getElementById('gift').style.display = 'none';
- document.getElementById('letter').style.display = 'block';
-
+ document.getElementById('gift').classList.add('hidden');
+ document.getElementById('letter').classList.remove('hidden');
  document.getElementById('message').textContent = message;
-
  window.scrollTo(0,0);
-
 }
 
-
-// الخاتمة
-
+// شاشة الختام
 function showEnding() {
-
- document.getElementById('letter').style.display = 'none';
- document.getElementById('ending').style.display = 'block';
-
+ document.getElementById('letter').classList.add('hidden');
+ document.getElementById('ending').classList.remove('hidden');
  window.scrollTo(0,0);
-
 }
 
-
-// النجوم
-
-for(let i=0;i<120;i++) {
-
- const star = document.createElement('div');
-
- star.className = 'star';
- star.style.left = Math.random()*100+'%';
- star.style.top = Math.random()*100+'%';
- star.style.animationDelay = Math.random()*4+'s';
- star.style.width = (Math.random()*2+1)+'px';
- star.style.height = star.style.width;
-
- document.getElementById('stars').appendChild(star);
-
-}
-
-
-// الورود والنجوم المتحركة
-
-setInterval(function() {
-
- const el = document.createElement('div');
-
- el.className = 'floating';
-
- const symbols = ['✨','🌸','💗','🌷','⋆'];
-
- el.textContent = symbols[Math.floor(Math.random()*symbols.length)];
- el.style.left = Math.random()*100+'%';
- el.style.fontSize = (Math.random()*18+14)+'px';
-
- document.body.appendChild(el);
-
- setTimeout(function() {
-  el.remove();
- },10000);
-
-},1200);
+// الدخول بزر Enter
+document.getElementById('password').addEventListener('keydown', function(e) {
+ if (e.key === 'Enter') login();
+});
 
 </script>
 
